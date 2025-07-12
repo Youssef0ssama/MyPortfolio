@@ -26,7 +26,7 @@ const Portfolio = () => {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/MyPortfolio">
         <Routes>
           <Route path="/" element={<Portfolio />} />
         </Routes>

@@ -359,4 +359,4 @@ Defaulting to \`null\`.`}var nf=Jd,Yg=ef;const Gg=N.forwardRef(({className:o,val
             transform: translateY(-5px) rotate(1deg);
           }
         }
-      `})]})},Jg=()=>s.jsxs("div",{className:"min-h-screen bg-white",children:[s.jsx(Pg,{}),s.jsx(zg,{}),s.jsx(Dg,{}),s.jsx(Og,{}),s.jsx(Kg,{}),s.jsx(Xg,{}),s.jsx(qg,{})]});function Zg(){return s.jsx("div",{className:"App",children:s.jsx(Ch,{children:s.jsx(nh,{children:s.jsx(bd,{path:"/",element:s.jsx(Jg,{})})})})})}const ev=cm.createRoot(document.getElementById("root"));ev.render(s.jsx(lm.StrictMode,{children:s.jsx(Zg,{})}));
+      `})]})},Jg=()=>s.jsxs("div",{className:"min-h-screen bg-white",children:[s.jsx(Pg,{}),s.jsx(zg,{}),s.jsx(Dg,{}),s.jsx(Og,{}),s.jsx(Kg,{}),s.jsx(Xg,{}),s.jsx(qg,{})]});function Zg(){return s.jsx("div",{className:"App",children:s.jsx(Ch,{basename:"/MyPortfolio",children:s.jsx(nh,{children:s.jsx(bd,{path:"/",element:s.jsx(Jg,{})})})})})}const ev=cm.createRoot(document.getElementById("root"));ev.render(s.jsx(lm.StrictMode,{children:s.jsx(Zg,{})}));
