@@ -33,7 +33,7 @@ const Navigation = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
     link.href = cv ;
-    link.download = 'Youssef_Kandil_CV.pdf';
+    link.download = 'Youssef_Kandil.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -98,8 +98,8 @@ const Hero = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = cv ;
-    link.download = 'Youssef_Kandil_CV.pdf';
+    link.href = { cv };
+    link.download = 'Youssef_Kandil.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -255,9 +255,9 @@ const Hero = () => {
                     if (typeof line !== 'string') return null;
                     return (
                       <div key={index} className={`${line.startsWith('>') ? 'text-cyan-400' :
-                          line.includes('youssef') ? 'text-yellow-400' :
-                            line.includes('✨') || line.includes('🚀') ? 'text-purple-400' :
-                              'text-green-400'
+                        line.includes('youssef') ? 'text-yellow-400' :
+                          line.includes('✨') || line.includes('🚀') ? 'text-purple-400' :
+                            'text-green-400'
                         } animate-fadeIn`}>
                         {line}
                       </div>
@@ -281,10 +281,10 @@ const Hero = () => {
                 <div className="font-mono text-sm space-y-1">
                   {codeSnippets.map((line, index) => (
                     <div key={index} className={`${line.includes('const') || line.includes('function') ? 'text-purple-400' :
-                        line.includes('//') ? 'text-gray-500' :
-                          line.includes("'") ? 'text-green-400' :
-                            line.includes('return') ? 'text-cyan-400' :
-                              'text-yellow-400'
+                      line.includes('//') ? 'text-gray-500' :
+                        line.includes("'") ? 'text-green-400' :
+                          line.includes('return') ? 'text-cyan-400' :
+                            'text-yellow-400'
                       } transition-all duration-300 hover:text-white cursor-pointer`}>
                       {line}
                     </div>
