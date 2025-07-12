@@ -4,8 +4,9 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Badge } from '../ui/badge';
-import { Mail, Phone, MapPin, Send, CheckCircle, Terminal, Code, Zap, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Terminal, Code, Zap, MessageSquare, Github, Linkedin } from 'lucide-react';
 import { personalInfo } from '../../data/mock';
+import { socialLinks } from '../../data/mock';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -56,13 +57,13 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setShowConsole(true);
-    
+
     // Mock form submission with console output
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
+
       // Reset success message after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
@@ -90,7 +91,7 @@ const Contact = () => {
           <div className="text-center mb-16">
             <div className="inline-block bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-700 p-6 mb-6">
               <MessageSquare className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-mono">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 font-mono">
                 <span className="text-cyan-400">{'{'}</span>
                 Contact Interface
                 <span className="text-cyan-400">{'}'}</span>
@@ -113,7 +114,7 @@ const Contact = () => {
                     <Terminal className="w-6 h-6 text-cyan-400 mr-3" />
                     <h3 className="text-2xl font-bold text-white font-mono">Contact Data</h3>
                   </div>
-                  
+
                   <div className="space-y-6">
                     <div className="flex items-center space-x-4 group">
                       <div className="p-3 bg-blue-500/20 rounded-lg border border-blue-500/40 group-hover:bg-blue-500/30 transition-colors">
@@ -121,7 +122,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="font-medium text-white font-mono">email</p>
-                        <a 
+                        <a
                           href={`mailto:${personalInfo.email}`}
                           className="text-blue-400 hover:text-blue-300 transition-colors font-mono"
                         >
@@ -136,7 +137,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="font-medium text-white font-mono">phone</p>
-                        <a 
+                        <a
                           href={`tel:${personalInfo.phone}`}
                           className="text-green-400 hover:text-green-300 transition-colors font-mono"
                         >
@@ -158,33 +159,48 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              {/* Live Console */}
-              <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-400 text-sm ml-4 font-mono">contact-console.sh</span>
+              {/* Connect With Me Card (Code Theme) */}
+              <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 shadow-lg">
+                <CardContent className="p-0">
+                  {/* Code Editor Header */}
+                  <div className="bg-gray-800/80 p-4 border-b border-gray-700 flex items-center">
+                    <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
+                    <span className="text-gray-400 text-sm font-mono">connect-with-me.jsx</span>
                   </div>
-                  <div className="bg-black/50 rounded p-4 h-48 overflow-hidden">
-                    <div className="font-mono text-sm space-y-1">
-                      <div className="text-cyan-400">$ ./contact-protocol.sh</div>
-                      {terminalOutput.map((line, index) => (
-                        <div key={index} className={`${
-                          line.includes('✓') ? 'text-green-400' :
-                          line.includes('🚀') ? 'text-purple-400' :
-                          line.includes('AES-256') ? 'text-yellow-400' :
-                          'text-gray-300'
-                        } animate-fadeIn`}>
-                          {line}
-                        </div>
-                      ))}
-                      <div className="text-cyan-400 animate-pulse">
-                        <span>$</span>
-                        <span className="animate-ping">_</span>
-                      </div>
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-white font-mono mb-6">Connect With Me</h3>
+                    <div className="flex space-x-6 mb-6">
+                      <a
+                        href={socialLinks.find(link => link.icon === 'github')?.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-4 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
+                        aria-label="GitHub"
+                      >
+                        <Github className="w-8 h-8 text-gray-300 group-hover:text-cyan-400 transition-colors" />
+                      </a>
+                      <a
+                        href={socialLinks.find(link => link.icon === 'linkedin')?.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-4 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin className="w-8 h-8 text-gray-300 group-hover:text-cyan-400 transition-colors" />
+                      </a>
+                      <a
+                        href={`mailto:${personalInfo.email}`}
+                        className="p-4 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
+                        aria-label="Email"
+                      >
+                        <Mail className="w-8 h-8 text-gray-300 group-hover:text-cyan-400 transition-colors" />
+                      </a>
                     </div>
+                    <p className="text-gray-300 text-base font-mono mt-2">
+                      Feel free to reach out through any of these platforms. I'm always open to discussing new opportunities and collaborations.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -227,7 +243,7 @@ const Contact = () => {
                     <Code className="w-6 h-6 text-cyan-400 mr-3" />
                     <h3 className="text-2xl font-bold text-white font-mono">Send Message</h3>
                   </div>
-                  
+
                   {isSubmitted && (
                     <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
                       <div className="flex items-center text-green-400 font-mono">

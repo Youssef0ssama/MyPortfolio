@@ -92,7 +92,7 @@ const Projects = () => {
           <div className="text-center mb-16">
             <div className="inline-block bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-700 p-6 mb-6">
               <Terminal className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-mono">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 font-mono">
                 <span className="text-cyan-400">{'<'}</span>
                 Featured Projects
                 <span className="text-cyan-400">{' />'}</span>
@@ -106,15 +106,14 @@ const Projects = () => {
           </div>
 
           {/* Code Preview Section */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* Left Side - Filter Buttons */}
+          <div className="w-100 text-center mb-16">
             <div className="space-y-6">
-              <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-6">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-6 text-center">
+                <h3 className="text-xl font-bold text-white mb-4 inline-flex items-center">
                   <Code className="w-5 h-5 mr-2 text-cyan-400" />
                   Filter Projects
                 </h3>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="flex flex-row gap-3 flex-wrap justify-center">
                   {['all', 'featured', 'react', 'javascript', 'figma'].map((filterType) => (
                     <Button
                       key={filterType}
@@ -131,39 +130,10 @@ const Projects = () => {
                 </div>
               </div>
             </div>
-
-            {/* Right Side - Live Code */}
-            <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-gray-400 text-sm ml-4">projects.jsx</span>
-              </div>
-              <div className="bg-black/50 rounded p-4 h-64 overflow-hidden">
-                <div className="font-mono text-sm space-y-1">
-                  {codeLines.map((line, index) => (
-                    <div key={index} className={`${
-                      typeof line === 'string' && line.includes('import') || typeof line === 'string' && line.includes('const') || typeof line === 'string' && line.includes('useEffect') ? 'text-purple-400' :
-                      typeof line === 'string' && line.includes('//') ? 'text-gray-500' :
-                      typeof line === 'string' && (line.includes("'") || line.includes('"')) ? 'text-green-400' :
-                      typeof line === 'string' && line.includes('return') ? 'text-cyan-400' :
-                      typeof line === 'string' && (line.includes('{') || line.includes('}')) ? 'text-yellow-400' :
-                      'text-gray-300'
-                    } transition-all duration-300 animate-fadeIn`}>
-                      {line || '\u00A0'}
-                    </div>
-                  ))}
-                  <div className="text-cyan-400 animate-pulse">
-                    <span>{'|'}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {filteredProjects.map((project, index) => (
               <Card 
                 key={project.id}
@@ -182,9 +152,6 @@ const Projects = () => {
                       <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                       <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-gray-400 text-xs ml-2 font-mono">
-                        {project.title.toLowerCase().replace(/\s+/g, '-')}.js
-                      </span>
                     </div>
                     <div className="flex items-center space-x-2">
                       {project.featured && (

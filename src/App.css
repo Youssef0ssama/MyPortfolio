@@ -24,10 +24,23 @@
     color: #61dafb;
 }
 
+body {
+    cursor: url('/src/assets/images/arrowhead-rounded-outline.svg'), text;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+    cursor: url('/src/assets/images/hand-pointer.svg'), text;
+}
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }

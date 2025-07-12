@@ -16,7 +16,17 @@ code {
         monospace;
 }
 
+body {
+  cursor: url('/src/assets/images/arrowhead-rounded-outline.svg'), text;
+}
 
+button,
+a,
+input,
+textarea,
+select {
+    cursor: url('/src/assets/images/hand-pointer.svg'), text;
+}
 
 @layer base {
   :root {

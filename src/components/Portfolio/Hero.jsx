@@ -4,6 +4,7 @@ import { Badge } from '../ui/badge';
 import { Github, Linkedin, ExternalLink, Figma, Mail, Phone, MapPin, Terminal, Code, Zap } from 'lucide-react';
 import { personalInfo, socialLinks } from '../../data/mock';
 import cv from '../../assets/pdf/Youssef_Kandil.pdf'
+import profile from '../../assets/images/My pic.png'
 
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
@@ -150,9 +151,9 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex felx-col-reverse grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Main Content */}
-          <div className="space-y-4 mt-12">
+          <div className="order-2 lg:order-1 space-y-4 lg:mt-12">
             {/* Terminal Header */}
             <div className="bg-gray-900/90 backdrop-blur-sm rounded-t-lg border border-gray-700 p-4">
               <div className="flex items-center">
@@ -242,53 +243,37 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Live Terminal */}
-          <div className="space-y-6 mt-10">
+          <div className="order-1 lg:order-2 mt-12 lg:mt-0">
             {/* Live Terminal */}
-            <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-6">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-4 w-full h-full mx-auto">
               <div className="flex items-center space-x-2 mb-4">
-                <Terminal className="w-5 h-5 text-green-400" />
-                <span className="text-green-400 font-mono">Live Terminal</span>
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="text-cyan-400 font-mono ml-2">profile.jpg</span>
               </div>
-              <div className="bg-black/50 rounded p-4 h-64 overflow-hidden">
-                <div className="font-mono text-sm space-y-1">
-                  {terminalLines.map((line, index) => {
-                    if (typeof line !== 'string') return null;
-                    return (
-                      <div key={index} className={`${line.startsWith('>') ? 'text-cyan-400' :
-                        line.includes('youssef') ? 'text-yellow-400' :
-                          line.includes('✨') || line.includes('🚀') ? 'text-purple-400' :
-                            'text-green-400'
-                        } animate-fadeIn`}>
-                        {line}
-                      </div>
-                    );
-                  })}
-                  <div className="text-cyan-400 animate-pulse">
-                    <span>{'>'}</span>
-                    <span className="animate-ping">_</span>
-                  </div>
+              <div className="relative group">
+                {/* Placeholder for your image - replace src with your actual image */}
+                <div className="flex justify-center items-center h-70">
+                  <img
+                    src={profile}
+                    alt="Youssef Kandil"
+                    className="w-80 h-full object-cover border-4 border-cyan-400 shadow-lg"
+                  />
                 </div>
-              </div>
-            </div>
-
-            {/* Code Preview */}
-            <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <Code className="w-5 h-5 text-blue-400" />
-                <span className="text-blue-400 font-mono">Code Preview</span>
-              </div>
-              <div className="bg-black/50 rounded p-4">
-                <div className="font-mono text-sm space-y-1">
-                  {codeSnippets.map((line, index) => (
-                    <div key={index} className={`${line.includes('const') || line.includes('function') ? 'text-purple-400' :
-                      line.includes('//') ? 'text-gray-500' :
-                        line.includes("'") ? 'text-green-400' :
-                          line.includes('return') ? 'text-cyan-400' :
-                            'text-yellow-400'
-                      } transition-all duration-300 hover:text-white cursor-pointer`}>
-                      {line}
+                {/* Status indicator */}
+                <div className="absolute top-4 right-4">
+                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                </div>
+                {/* Info overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                  <div className="text-white text-sm">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="font-mono text-xs text-green-400">ONLINE</span>
                     </div>
-                  ))}
+                    <p className="text-cyan-400 font-mono text-xs mt-1">Frontend Developer</p>
+                  </div>
                 </div>
               </div>
             </div>

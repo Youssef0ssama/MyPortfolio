@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { GraduationCap, Code2, Target, Calendar, Terminal, Book, Award } from 'lucide-react';
+import { GraduationCap, Code2, Target, Calendar, Terminal, Book, Award, Database, Zap } from 'lucide-react';
 import { education, certificates } from '../../data/mock';
 
 const About = () => {
@@ -14,19 +14,12 @@ class Developer {
   constructor() {
     this.name = "Youssef Kandil";
     this.location = "Alexandria, Egypt";
-    this.education = "Computer Science Graduate ";
-    this.passion = "Frontend Development";
-    this.status = "Graduated jun 2025";
-  }
-  
-  getObjective() {
-    return "Building user-friendly, scalable web applications with modern technologies";
+    this.university = "Alexandria University";
+    this.college = "Faculty of Science";
+    this.education = "Computer Science (SIM) ";
   }
 }
-
-const youssef = new Developer();
-console.log(youssef.getObjective());
-  `;
+const youssef = new Developer();`;
 
   useEffect(() => {
     let index = 0;
@@ -37,7 +30,7 @@ console.log(youssef.getObjective());
       } else {
         clearInterval(typeInterval);
       }
-    }, 50);
+    }, 5);
 
     const cursorInterval = setInterval(() => {
       setShowCursor(prev => !prev);
@@ -76,7 +69,7 @@ console.log(youssef.getObjective());
           <div className="text-center mb-10 md:mb-16">
             <div className="inline-block bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-700 p-4 md:p-6 mb-4 md:mb-6">
               <Code2 className="w-7 h-7 md:w-8 md:h-8 text-cyan-400 mx-auto mb-3 md:mb-4" />
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 md:mb-4 font-mono">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-2 md:mb-4 font-mono">
                 <span className="text-cyan-400">{'<'}</span>
                 About Developer
                 <span className="text-cyan-400">{' />'}</span>
@@ -105,11 +98,11 @@ console.log(youssef.getObjective());
                   </div>
 
                   {/* Code Content */}
-                  <div className="p-3 md:p-6">
-                    <div className="bg-black/50 rounded-lg p-3 md:p-4 min-h-[200px] md:min-h-[384px] max-h-[300px] md:max-h-96 overflow-y-auto">
+                  <div className="p-2 md:p-3">
+                    <div className="bg-black/50 rounded-lg p-2 md:p-2 min-h-[150px] md:min-h-[250px] max-h-[200px] md:max-h-80 overflow-y-auto">
                       <pre className="font-mono text-xs md:text-sm">
                         <code className="text-gray-300">
-                          {typedBio.split('\n').map((line, index) => (
+                          {typedBio.split('\n').map((line, index, arr) => (
                             <div key={index} className={`${line.includes('class') || line.includes('constructor') || line.includes('getObjective') ? 'text-purple-400' :
                               line.includes('//') ? 'text-gray-500' :
                                 line.includes('this.') ? 'text-cyan-400' :
@@ -120,122 +113,12 @@ console.log(youssef.getObjective());
                                           'text-gray-300'
                               }`}>
                               {line || '\u00A0'}
+                              {showCursor && index === arr.length - 1 && <span className="text-cyan-400 animate-pulse">|</span>}
                             </div>
                           ))}
-                          {showCursor && <span className="text-cyan-400 animate-pulse">|</span>}
                         </code>
                       </pre>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Mission Card */}
-              <Card className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 backdrop-blur-sm w-full">
-                <CardContent className="p-4 md:p-6">
-                  <div className="flex items-center mb-3 md:mb-4">
-                    <Target className="w-5 h-5 md:w-6 md:h-6 text-cyan-400 mr-2 md:mr-3" />
-                    <h3 className="text-lg md:text-xl font-bold text-white font-mono">Mission Statement</h3>
-                  </div>
-                  <div className="bg-black/30 rounded-lg p-3 md:p-4 border border-cyan-500/20">
-                    <p className="text-gray-300 leading-relaxed font-mono text-sm md:text-base">
-                      <span className="text-green-400">// </span>
-                      To create innovative web solutions that bridge the gap between
-                      creativity and functionality, delivering exceptional user experiences
-                      through clean, efficient code.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Right Side - Education & Certificates */}
-            <div className="space-y-6">
-              {/* Education Card */}
-              <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-blue-500/50 transition-all duration-300 w-full">
-                <CardContent className="p-4 md:p-6">
-                  <div className="flex items-center mb-4 md:mb-6">
-                    <div className="p-2 md:p-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg mr-3 md:mr-4">
-                      <GraduationCap className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg md:text-xl font-bold text-white font-mono">Education</h3>
-                      <p className="text-gray-400 font-mono text-xs md:text-sm">Academic Background</p>
-                    </div>
-                  </div>
-
-                  <div className="bg-black/30 rounded-lg p-3 md:p-4 border border-gray-700">
-                    <h4 className="text-base md:text-lg font-semibold text-white mb-1 md:mb-2 font-mono">
-                      {education.degree}
-                    </h4>
-                    <p className="text-cyan-400 font-mono mb-1">{education.institution}</p>
-                    <div className="flex items-center text-gray-400 mb-2 md:mb-4 font-mono">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      <span>{education.duration}</span>
-                    </div>
-                  </div>
-
-                  <div className="mt-3 md:mt-4">
-                    <h5 className="font-semibold text-white mb-2 md:mb-3 font-mono flex items-center">
-                      <Book className="w-4 h-4 mr-2 text-green-400" />
-                      Key Courses:
-                    </h5>
-                    <div className="flex flex-wrap gap-2">
-                      {education.courses.map((course, index) => (
-                        <Badge
-                          key={index}
-                          className="bg-blue-500/20 text-blue-400 border-blue-500/40 font-mono text-xs"
-                        >
-                          {course}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Certificates Card */}
-              <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-green-500/50 transition-all duration-300 w-full">
-                <CardContent className="p-4 md:p-6">
-                  <div className="flex items-center mb-4 md:mb-6">
-                    <div className="p-2 md:p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg mr-3 md:mr-4">
-                      <Award className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg md:text-xl font-bold text-white font-mono">Certificates</h3>
-                      <p className="text-gray-400 font-mono text-xs md:text-sm">Professional Development</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 md:space-y-3">
-                    {certificates.map((cert, index) => (
-                      <div
-                        key={index}
-                        className={`p-3 md:p-4 rounded-lg border transition-all duration-300 ${index === currentCert
-                          ? 'bg-green-500/10 border-green-500/40'
-                          : 'bg-gray-800/30 border-gray-700'
-                          }`}
-                      >
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <h4 className="font-semibold text-white mb-1 font-mono text-sm md:text-base">
-                              {cert.title}
-                            </h4>
-                            <p className="text-gray-400 text-xs md:text-sm font-mono">{cert.issuer}</p>
-                          </div>
-                          <div className="text-right">
-                            <Badge
-                              className={`font-mono text-xs md:text-sm ${cert.current
-                                ? 'bg-green-500/20 text-green-400 border-green-500/40 animate-pulse'
-                                : 'bg-gray-600/20 text-gray-400 border-gray-600/40'
-                                }`}
-                            >
-                              {cert.year}
-                            </Badge>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -265,6 +148,72 @@ console.log(youssef.getObjective());
                   </div>
                 </CardContent>
               </Card>
+            </div>
+
+            {/* Right Side - Skills/Features Grid */}
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Card 1 */}
+                <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400 transition-all duration-300 shadow-lg">
+                  <CardContent className="p-5 flex flex-col items-start">
+                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
+                      <Code2 className="w-7 h-7 text-cyan-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">Frontend Development</h3>
+                    <p className="text-gray-300 text-sm">Building responsive websites with HTML, CSS, and JavaScript</p>
+                  </CardContent>
+                </Card>
+                {/* Card 2 */}
+                <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400 transition-all duration-300 shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-start">
+                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
+                      <Terminal className="w-7 h-7 text-cyan-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">React Applications</h3>
+                    <p className="text-gray-300 text-sm">Developing interactive UIs using React framework</p>
+                  </CardContent>
+                </Card>
+                {/* Card 3 */}
+                <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400 transition-all duration-300 shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-start">
+                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
+                      <Book className="w-7 h-7 text-cyan-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">Mobile-First Design</h3>
+                    <p className="text-gray-300 text-sm">Creating responsive interfaces for all devices</p>
+                  </CardContent>
+                </Card>
+                {/* Card 4 */}
+                <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400 transition-all duration-300 shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-start">
+                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
+                      <Database className="w-7 h-7 text-cyan-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">Database Integration</h3>
+                    <p className="text-gray-300 text-sm">Working with MySQL for data management</p>
+                  </CardContent>
+                </Card>
+                {/* Card 5 */}
+                <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400 transition-all duration-300 shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-start">
+                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
+                      <Zap className="w-7 h-7 text-cyan-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">Version Control</h3>
+                    <p className="text-gray-300 text-sm">Utilizing Git for collaborative development</p>
+                  </CardContent>
+                </Card>
+                {/* Card 6 */}
+                <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400 transition-all duration-300 shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-start">
+                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
+                      <Award className="w-7 h-7 text-cyan-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">UI/UX Design</h3>
+                    <p className="text-gray-300 text-sm">Designing interfaces with Figma and Illustrator</p>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>

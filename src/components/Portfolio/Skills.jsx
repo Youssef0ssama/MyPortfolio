@@ -111,7 +111,7 @@ const Skills = () => {
           <div className="text-center mb-16">
             <div className="inline-block bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-700 p-6 mb-6">
               <Activity className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-mono">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 font-mono">
                 <span className="text-cyan-400">{'{'}</span>
                 Skills Matrix
                 <span className="text-cyan-400">{'}'}</span>
@@ -127,45 +127,10 @@ const Skills = () => {
           {/* Skills Dashboard */}
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
             {/* Live Terminal */}
-            <div className="lg:col-span-1">
-              <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <Terminal className="w-5 h-5 text-green-400" />
-                    <span className="text-green-400 font-mono text-sm">Skills Analyzer</span>
-                  </div>
-                  <div className="bg-black/50 rounded p-4 h-80 overflow-hidden">
-                    <div className="font-mono text-xs space-y-2">
-                      <div className="text-cyan-400">$ ./analyze_skills.sh</div>
-                      <div className="text-gray-500">Scanning technical capabilities...</div>
-                      <div className="text-green-400">Status: Active Learning Mode</div>
-                      <div className="border-t border-gray-700 my-2"></div>
-                      {terminalOutput.slice(-8).map((line, index) => (
-                        <div key={index} className="animate-fadeIn">
-                          <div className="text-cyan-400">{line.command}</div>
-                          <div className={`text-sm ${
-                            line.level >= 90 ? 'text-green-400' :
-                            line.level >= 80 ? 'text-blue-400' :
-                            line.level >= 70 ? 'text-yellow-400' :
-                            'text-purple-400'
-                          }`}>
-                            → {line.output}
-                          </div>
-                        </div>
-                      ))}
-                      <div className="text-cyan-400 animate-pulse">
-                        <span>$</span>
-                        <span className="animate-ping">_</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
 
             {/* Skills Grid */}
-            <div className="lg:col-span-2">
-              <div className="grid md:grid-cols-2 gap-6">
+            <div className="lg:col-span-3">
+              <div className="grid md:grid-cols-3 gap-6">
                 {skills.map((category, categoryIndex) => (
                   <Card 
                     key={categoryIndex}
@@ -207,7 +172,7 @@ const Skills = () => {
                                   'bg-purple-500/20 text-purple-400 border-purple-500/40'
                                 }`}
                               >
-                                {skill.description}
+                                <span className="font-bold mr-1">{animatedSkills[skill.name] || 0}%</span>{skill.description}
                               </Badge>
                             </div>
                             
@@ -220,11 +185,7 @@ const Skills = () => {
                                   <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
                                 </div>
                               </div>
-                              <div className="absolute right-0 top-0 transform translate-y-full">
-                                <span className="text-xs text-gray-400 font-mono bg-gray-800/80 px-2 py-1 rounded">
-                                  {animatedSkills[skill.name] || 0}%
-                                </span>
-                              </div>
+                              {/* Removed floating percentage here */}
                             </div>
                           </div>
                         ))}
