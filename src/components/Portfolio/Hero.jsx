@@ -3,6 +3,7 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Github, Linkedin, ExternalLink, Figma, Mail, Phone, MapPin, Terminal, Code, Zap } from 'lucide-react';
 import { personalInfo, socialLinks } from '../../data/mock';
+import cv from '../../assets/pdf/Youssef_Kandil.pdf'
 
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
@@ -96,7 +97,12 @@ const Hero = () => {
   };
 
   const handleDownloadCV = () => {
-    console.log('CV download initiated');
+    const link = document.createElement('a');
+    link.href = cv ;
+    link.download = 'Youssef_Kandil_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleContactMe = () => {
@@ -146,7 +152,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Main Content */}
-          <div className="space-y-4 mt-10">
+          <div className="space-y-4 mt-12">
             {/* Terminal Header */}
             <div className="bg-gray-900/90 backdrop-blur-sm rounded-t-lg border border-gray-700 p-4">
               <div className="flex items-center">
@@ -236,7 +242,7 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Live Terminal */}
-          <div className="space-y-6 mt-8">
+          <div className="space-y-6 mt-10">
             {/* Live Terminal */}
             <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-6">
               <div className="flex items-center space-x-2 mb-4">

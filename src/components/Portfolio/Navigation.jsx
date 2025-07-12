@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Menu, X, Download, Terminal } from 'lucide-react';
 import { personalInfo } from '../../data/mock';
+import cv from '../../assets/pdf/Youssef_Kandil.pdf'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +31,12 @@ const Navigation = () => {
   };
 
   const handleDownloadCV = () => {
-    // Mock CV download functionality
-    console.log('CV download initiated');
+    const link = document.createElement('a');
+    link.href = cv ;
+    link.download = 'Youssef_Kandil_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
