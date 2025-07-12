@@ -9,6 +9,8 @@ import Skills from "./components/Portfolio/Skills";
 import Contact from "./components/Portfolio/Contact";
 import Footer from "./components/Portfolio/Footer";
 
+const basename = import.meta.env.VITE_BASE_PATH || "/";
+
 const Portfolio = () => {
   return (
     <div className="min-h-screen bg-white">
@@ -26,7 +28,7 @@ const Portfolio = () => {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename="/MyPortfolio">
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route path="/" element={<Portfolio />} />
         </Routes>
