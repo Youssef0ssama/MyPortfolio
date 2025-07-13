@@ -16,24 +16,12 @@ code {
         monospace;
 }
 
-body {
-  cursor: url('/src/assets/images/arrowhead-rounded-outline.svg'), text;
-}
-
-button,
-a,
-input,
-textarea,
-select {
-    cursor: url('/src/assets/images/hand-pointer.svg'), text;
-}
-
 @layer base {
   :root {
         --background: 0 0% 100%;
         --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
+        --card: 0 0% 98%;
+        --card-foreground: 0 0% 10%;
         --popover: 0 0% 100%;
         --popover-foreground: 0 0% 3.9%;
         --primary: 0 0% 9%;

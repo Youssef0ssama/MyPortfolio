@@ -92,7 +92,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section id="skills" className="py-20 bg-background text-foreground relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
@@ -109,16 +109,16 @@ const Skills = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-block bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-700 p-6 mb-6">
+            <div className="inline-block bg-card/80 backdrop-blur-sm rounded-lg border border-border p-6 mb-6">
               <Activity className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 font-mono">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-card-foreground mb-4 font-mono">
                 <span className="text-cyan-400">{'{'}</span>
                 Skills Matrix
                 <span className="text-cyan-400">{'}'}</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
             </div>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto font-mono">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-mono">
               <span className="text-green-400">// </span>
               Real-time analysis of technical proficiency levels
             </p>
@@ -134,7 +134,7 @@ const Skills = () => {
                 {skills.map((category, categoryIndex) => (
                   <Card 
                     key={categoryIndex}
-                    className={`group bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400 transition-all duration-500 transform hover:-translate-y-1 cursor-pointer ${
+                    className={`group bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-500 transform hover:-translate-y-1 cursor-pointer ${
                       activeCategory === categoryIndex ? 'border-cyan-400 shadow-lg shadow-cyan-500/25' : ''
                     }`}
                     onClick={() => setActiveCategory(activeCategory === categoryIndex ? null : categoryIndex)}
@@ -145,10 +145,10 @@ const Skills = () => {
                           {getCategoryIcon(category.category)}
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-white font-mono">
+                          <h3 className="text-xl font-bold text-card-foreground font-mono">
                             {category.category}
                           </h3>
-                          <p className="text-gray-400 text-sm font-mono">
+                          <p className="text-muted-foreground text-sm font-mono">
                             {category.items.length} skills
                           </p>
                         </div>
@@ -159,7 +159,7 @@ const Skills = () => {
                           <div key={skillIndex} className="group/skill">
                             <div className="flex justify-between items-center mb-2">
                               <div className="flex items-center space-x-2">
-                                <span className="font-medium text-gray-300 font-mono text-sm">
+                                <span className="font-medium text-muted-foreground font-mono text-sm">
                                   {skill.name}
                                 </span>
                                 <Zap className="w-3 h-3 text-yellow-400 opacity-0 group-hover/skill:opacity-100 transition-opacity" />
@@ -170,14 +170,14 @@ const Skills = () => {
                                   skill.level >= 80 ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' :
                                   skill.level >= 70 ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/40' :
                                   'bg-purple-500/20 text-purple-400 border-purple-500/40'
-                                }`}
+                                } hover:bg-gray-100 hover:text-cyan-600 dark:hover:bg-white/10 dark:hover:text-white border`}
                               >
                                 <span className="font-bold mr-1">{animatedSkills[skill.name] || 0}%</span>{skill.description}
                               </Badge>
                             </div>
                             
                             <div className="relative">
-                              <div className="bg-gray-800/50 rounded-full h-2 overflow-hidden">
+                              <div className="bg-background/50 rounded-full h-2 overflow-hidden">
                                 <div 
                                   className={`h-full bg-gradient-to-r ${getSkillColor(skill.level)} rounded-full transition-all duration-1000 ease-out relative overflow-hidden`}
                                   style={{ width: `${animatedSkills[skill.name] || 0}%` }}
@@ -198,32 +198,32 @@ const Skills = () => {
           </div>
 
           {/* Skills Summary */}
-          <Card className="bg-gradient-to-r from-gray-900 via-black to-gray-900 border border-gray-700 relative overflow-hidden">
+          <Card className="bg-card/80 border border-border relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-purple-500/5"></div>
             <CardContent className="p-8 text-center relative z-10">
               <div className="grid md:grid-cols-3 gap-8 mb-6">
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-cyan-400 font-mono">5+</div>
-                  <div className="text-gray-400 font-mono">Languages</div>
+                  <div className="text-muted-foreground font-mono">Languages</div>
                 </div>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-green-400 font-mono">10+</div>
-                  <div className="text-gray-400 font-mono">Technologies</div>
+                  <div className="text-muted-foreground font-mono">Technologies</div>
                 </div>
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-purple-400 font-mono">3+</div>
-                  <div className="text-gray-400 font-mono">Years Learning</div>
+                  <div className="text-muted-foreground font-mono">Years Learning</div>
                 </div>
               </div>
               
-              <h3 className="text-2xl font-bold text-white mb-4 font-mono">
+              <h3 className="text-2xl font-bold text-card-foreground mb-4 font-mono">
                 <span className="text-cyan-400">continuous</span>
-                <span className="text-white">.</span>
+                <span className="text-card-foreground">.</span>
                 <span className="text-purple-400">learning</span>
-                <span className="text-white">()</span>
+                <span className="text-card-foreground">()</span>
               </h3>
               
-              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed font-mono">
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed font-mono">
                 Always exploring new technologies and methodologies. Currently diving deep into 
                 modern web development patterns and staying updated with the latest industry trends.
               </p>

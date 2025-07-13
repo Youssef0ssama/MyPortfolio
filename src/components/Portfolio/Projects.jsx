@@ -74,7 +74,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+    <section id="projects" className="py-20 bg-background text-foreground relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{
@@ -90,16 +90,16 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-block bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-700 p-6 mb-6">
+            <div className="inline-block bg-card/80 backdrop-blur-sm rounded-lg border border-border p-6 mb-6">
               <Terminal className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 font-mono">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-card-foreground mb-4 font-mono">
                 <span className="text-cyan-400">{'<'}</span>
                 Featured Projects
                 <span className="text-cyan-400">{' />'}</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
             </div>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto font-mono">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-mono">
               <span className="text-green-400">// </span>
               Projects that showcase my coding journey and technical skills
             </p>
@@ -108,8 +108,8 @@ const Projects = () => {
           {/* Code Preview Section */}
           <div className="w-100 text-center mb-16">
             <div className="space-y-6">
-              <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-6 text-center">
-                <h3 className="text-xl font-bold text-white mb-4 inline-flex items-center">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg border border-border p-6 text-center">
+                <h3 className="text-xl font-bold text-card-foreground mb-4 inline-flex items-center">
                   <Code className="w-5 h-5 mr-2 text-cyan-400" />
                   Filter Projects
                 </h3>
@@ -118,11 +118,11 @@ const Projects = () => {
                     <Button
                       key={filterType}
                       onClick={() => setFilter(filterType)}
-                      className={`px-4 py-2 rounded-md font-mono text-sm transition-all duration-300 ${
-                        filter === filterType
+                      className={`px-4 py-2 rounded-md font-mono text-sm transition-all duration-300 border border-border
+                        ${filter === filterType
                           ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25"
-                          : "bg-gray-800/50 text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50 border border-gray-600"
-                      }`}
+                          : "bg-card/80 text-card-foreground hover:text-cyan-500 hover:bg-card/90"}
+                      `}
                     >
                       {filterType === 'all' ? 'show_all()' : `filter_${filterType}()`}
                     </Button>
@@ -137,7 +137,7 @@ const Projects = () => {
             {filteredProjects.map((project, index) => (
               <Card 
                 key={project.id}
-                className="group relative bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
+                className="group relative bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
                 onClick={() => handleProjectClick(project)}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
@@ -146,7 +146,7 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Terminal Header */}
-                <div className="bg-gray-800/80 p-3 border-b border-gray-700">
+                <div className="bg-card/80 p-3 border-b border-border">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -188,13 +188,13 @@ const Projects = () => {
                 <CardContent className="p-6 relative z-10">
                   <div className="flex items-center space-x-2 mb-3">
                     <Terminal className="w-5 h-5 text-cyan-400" />
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors font-mono">
+                    <h3 className="text-xl font-bold text-card-foreground group-hover:text-cyan-400 transition-colors font-mono">
                       {project.title}
                     </h3>
                   </div>
                   
-                  <div className="bg-black/30 rounded p-3 mb-4 border border-gray-700">
-                    <p className="text-gray-300 text-sm leading-relaxed font-mono">
+                  <div className="bg-background/30 rounded p-3 mb-4 border border-border">
+                    <p className="text-muted-foreground text-sm leading-relaxed font-mono">
                       <span className="text-green-400">// </span>
                       {project.description}
                     </p>
@@ -204,7 +204,7 @@ const Projects = () => {
                     {project.technologies?.map((tech, techIndex) => (
                       <Badge 
                         key={techIndex} 
-                        className="bg-gray-800/50 text-gray-300 hover:bg-cyan-500/20 hover:text-cyan-400 transition-colors font-mono text-xs"
+                        className="bg-card/80 text-muted-foreground hover:bg-cyan-100 hover:text-cyan-700 transition-colors font-mono text-xs border border-border"
                       >
                         {tech}
                       </Badge>
@@ -228,7 +228,7 @@ const Projects = () => {
                     {project.githubUrl && (
                       <Button 
                         size="sm" 
-                        className="bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:text-white border border-gray-600 font-mono"
+                        className="bg-card/80 text-card-foreground hover:bg-cyan-100 hover:text-cyan-700 border border-border font-mono"
                         onClick={(e) => {
                           e.stopPropagation();
                           window.open(project.githubUrl, '_blank');
@@ -241,7 +241,7 @@ const Projects = () => {
                     {project.figmaUrl && (
                       <Button 
                         size="sm" 
-                        className="bg-purple-600/50 text-purple-300 hover:bg-purple-500/50 hover:text-white border border-purple-500/50 font-mono"
+                        className="bg-card/80 text-card-foreground hover:bg-purple-100 hover:text-purple-700 border border-border font-mono"
                         onClick={(e) => {
                           e.stopPropagation();
                           window.open(project.figmaUrl, '_blank');

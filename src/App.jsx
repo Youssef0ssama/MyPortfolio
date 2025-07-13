@@ -13,7 +13,7 @@ const basename = import.meta.env.VITE_BASE_PATH || "/";
 
 const Portfolio = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <Hero />
       <About />

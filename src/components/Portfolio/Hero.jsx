@@ -111,7 +111,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background text-foreground">
       {/* Matrix Background */}
       <div className="absolute inset-0">
         {matrixChars.map((char, index) => (
@@ -144,9 +144,9 @@ const Hero = () => {
 
       {/* Neon Circles */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse border border-blue-500/20"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000 border border-purple-500/20"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-2000 border border-green-500/20"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl animate-pulse border border-cyan-400/20 dark:bg-blue-500/10 dark:border-blue-500/20"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000 border border-purple-400/20 dark:bg-purple-500/10 dark:border-purple-500/20"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-green-400/10 rounded-full blur-3xl animate-pulse delay-2000 border border-green-400/20 dark:bg-green-500/10 dark:border-green-500/20"></div>
       </div>
 
       {/* Content */}
@@ -155,17 +155,17 @@ const Hero = () => {
           {/* Left Side - Main Content */}
           <div className="order-2 lg:order-1 space-y-4 lg:mt-12">
             {/* Terminal Header */}
-            <div className="bg-gray-900/90 backdrop-blur-sm rounded-t-lg border border-gray-700 p-4">
+            <div className="bg-card/90 backdrop-blur-sm rounded-t-lg border border-border p-4">
               <div className="flex items-center">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-gray-400 text-sm ml-4">frontend-developer.js</span>
+                <span className="text-muted-foreground text-sm ml-4">frontend-developer.js</span>
               </div>
             </div>
 
             {/* Terminal Content */}
-            <div className="bg-black/90 backdrop-blur-sm rounded-b-lg border-l border-r border-b border-gray-700 p-6 font-mono text-sm mt-0">
+            <div className="bg-background/90 backdrop-blur-sm rounded-b-lg border-l border-r border-b border-border p-6 font-mono text-sm mt-0">
               <div className="space-y-2">
                 <div className="text-green-400">
                   {typedText}
@@ -196,12 +196,12 @@ const Hero = () => {
             </div>
 
             {/* Description */}
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-gray-700 p-6">
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center">
+            <div className="bg-card/50 backdrop-blur-sm rounded-lg border border-border p-6">
+              <h3 className="text-xl font-bold text-foreground mb-3 flex items-center">
                 <Code className="w-5 h-5 mr-2 text-cyan-400" />
                 About This Developer
               </h3>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 {personalInfo.objective}
               </p>
             </div>
@@ -233,9 +233,9 @@ const Hero = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-900/70 backdrop-blur-sm rounded-lg border border-gray-700 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:bg-gray-800/90 group"
+                    className="p-3 bg-card/70 backdrop-blur-sm rounded-lg border border-border hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:bg-card/90 group"
                   >
-                    <Icon className="w-6 h-6 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                    <Icon className="w-6 h-6 text-muted-foreground group-hover:text-cyan-400 transition-colors" />
                   </a>
                 );
               })}
@@ -245,12 +245,12 @@ const Hero = () => {
           {/* Right Side - Live Terminal */}
           <div className="order-1 lg:order-2 mt-12 lg:mt-0">
             {/* Live Terminal */}
-            <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg border border-gray-700 p-4 w-full h-full mx-auto">
+            <div className="bg-card/90 backdrop-blur-sm rounded-lg border border-border p-4 w-full h-full mx-auto">
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-cyan-400 font-mono ml-2">profile.jpg</span>
+                <span className="text-muted-foreground text-sm ml-4 font-mono">live.terminal</span>
               </div>
               <div className="relative group">
                 {/* Placeholder for your image - replace src with your actual image */}

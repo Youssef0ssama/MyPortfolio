@@ -73,7 +73,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section id="contact" className="py-20 bg-background text-foreground relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
@@ -89,16 +89,16 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-block bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-700 p-6 mb-6">
+            <div className="inline-block bg-card/80 backdrop-blur-sm rounded-lg border border-border p-6 mb-6">
               <MessageSquare className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 font-mono">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-card-foreground mb-4 font-mono">
                 <span className="text-cyan-400">{'{'}</span>
                 Contact Interface
                 <span className="text-cyan-400">{'}'}</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
             </div>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto font-mono">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-mono">
               <span className="text-green-400">// </span>
               Ready to initialize communication protocol
             </p>
@@ -108,23 +108,23 @@ const Contact = () => {
             {/* Left Side - Contact Information */}
             <div className="space-y-8">
               {/* Contact Card */}
-              <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 hover:border-cyan-400/50 transition-all duration-300">
+              <Card className="bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400/50 transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
                     <Terminal className="w-6 h-6 text-cyan-400 mr-3" />
-                    <h3 className="text-2xl font-bold text-white font-mono">Contact Data</h3>
+                    <h3 className="text-2xl font-bold text-card-foreground font-mono">Contact Data</h3>
                   </div>
 
                   <div className="space-y-6">
                     <div className="flex items-center space-x-4 group">
-                      <div className="p-3 bg-blue-500/20 rounded-lg border border-blue-500/40 group-hover:bg-blue-500/30 transition-colors">
+                      <div className="p-3 bg-blue-500/10 rounded-lg border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
                         <Mail className="w-6 h-6 text-blue-400" />
                       </div>
                       <div>
-                        <p className="font-medium text-white font-mono">email</p>
+                        <p className="font-medium text-card-foreground font-mono">email</p>
                         <a
                           href={`mailto:${personalInfo.email}`}
-                          className="text-blue-400 hover:text-blue-300 transition-colors font-mono"
+                          className="text-blue-500 hover:text-blue-600 transition-colors font-mono"
                         >
                           {personalInfo.email}
                         </a>
@@ -132,14 +132,14 @@ const Contact = () => {
                     </div>
 
                     <div className="flex items-center space-x-4 group">
-                      <div className="p-3 bg-green-500/20 rounded-lg border border-green-500/40 group-hover:bg-green-500/30 transition-colors">
+                      <div className="p-3 bg-green-500/10 rounded-lg border border-green-500/20 group-hover:bg-green-500/20 transition-colors">
                         <Phone className="w-6 h-6 text-green-400" />
                       </div>
                       <div>
-                        <p className="font-medium text-white font-mono">phone</p>
+                        <p className="font-medium text-card-foreground font-mono">phone</p>
                         <a
                           href={`tel:${personalInfo.phone}`}
-                          className="text-green-400 hover:text-green-300 transition-colors font-mono"
+                          className="text-green-500 hover:text-green-600 transition-colors font-mono"
                         >
                           {personalInfo.phone}
                         </a>
@@ -147,12 +147,12 @@ const Contact = () => {
                     </div>
 
                     <div className="flex items-center space-x-4 group">
-                      <div className="p-3 bg-purple-500/20 rounded-lg border border-purple-500/40 group-hover:bg-purple-500/30 transition-colors">
+                      <div className="p-3 bg-purple-500/10 rounded-lg border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors">
                         <MapPin className="w-6 h-6 text-purple-400" />
                       </div>
                       <div>
-                        <p className="font-medium text-white font-mono">location</p>
-                        <p className="text-purple-400 font-mono">{personalInfo.location}</p>
+                        <p className="font-medium text-card-foreground font-mono">location</p>
+                        <p className="text-purple-500 font-mono">{personalInfo.location}</p>
                       </div>
                     </div>
                   </div>
@@ -160,45 +160,45 @@ const Contact = () => {
               </Card>
 
               {/* Connect With Me Card (Code Theme) */}
-              <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700 shadow-lg">
+              <Card className="bg-card/80 backdrop-blur-sm border border-border shadow-lg">
                 <CardContent className="p-0">
                   {/* Code Editor Header */}
-                  <div className="bg-gray-800/80 p-4 border-b border-gray-700 flex items-center">
+                  <div className="bg-card/80 p-4 border-b border-border flex items-center">
                     <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
                     <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
                     <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                    <span className="text-gray-400 text-sm font-mono">connect-with-me.jsx</span>
+                    <span className="text-muted-foreground text-sm font-mono">connect-with-me.jsx</span>
                   </div>
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold text-white font-mono mb-6">Connect With Me</h3>
+                    <h3 className="text-2xl font-bold text-card-foreground font-mono mb-6">Connect With Me</h3>
                     <div className="flex space-x-6 mb-6">
                       <a
                         href={socialLinks.find(link => link.icon === 'github')?.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-4 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
+                        className="p-4 bg-card/80 rounded-lg border border-border hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
                         aria-label="GitHub"
                       >
-                        <Github className="w-8 h-8 text-gray-300 group-hover:text-cyan-400 transition-colors" />
+                        <Github className="w-8 h-8 text-muted-foreground group-hover:text-cyan-400 transition-colors" />
                       </a>
                       <a
                         href={socialLinks.find(link => link.icon === 'linkedin')?.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-4 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
+                        className="p-4 bg-card/80 rounded-lg border border-border hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
                         aria-label="LinkedIn"
                       >
-                        <Linkedin className="w-8 h-8 text-gray-300 group-hover:text-cyan-400 transition-colors" />
+                        <Linkedin className="w-8 h-8 text-muted-foreground group-hover:text-cyan-400 transition-colors" />
                       </a>
                       <a
                         href={`mailto:${personalInfo.email}`}
-                        className="p-4 bg-gray-800/60 rounded-lg border border-gray-700 hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
+                        className="p-4 bg-card/80 rounded-lg border border-border hover:border-cyan-400 transition-colors flex items-center justify-center shadow group"
                         aria-label="Email"
                       >
-                        <Mail className="w-8 h-8 text-gray-300 group-hover:text-cyan-400 transition-colors" />
+                        <Mail className="w-8 h-8 text-muted-foreground group-hover:text-cyan-400 transition-colors" />
                       </a>
                     </div>
-                    <p className="text-gray-300 text-base font-mono mt-2">
+                    <p className="text-muted-foreground text-base font-mono mt-2">
                       Feel free to reach out through any of these platforms. I'm always open to discussing new opportunities and collaborations.
                     </p>
                   </div>
@@ -207,41 +207,41 @@ const Contact = () => {
 
               {/* Status Cards */}
               <div className="grid grid-cols-2 gap-4">
-                <Card className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 backdrop-blur-sm">
+                <Card className="bg-card/80 border border-border backdrop-blur-sm">
                   <CardContent className="p-4 text-center">
                     <CheckCircle className="w-8 h-8 text-green-400 mx-auto mb-2" />
-                    <h4 className="font-semibold text-white font-mono text-sm">Response Time</h4>
-                    <p className="text-green-400 font-mono text-xs">{'< 24 hours'}</p>
+                    <h4 className="font-semibold text-card-foreground font-mono text-sm">Response Time</h4>
+                    <p className="text-green-500 font-mono text-xs">{'< 24 hours'}</p>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 backdrop-blur-sm">
+                <Card className="bg-card/80 border border-border backdrop-blur-sm">
                   <CardContent className="p-4 text-center">
                     <Zap className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
-                    <h4 className="font-semibold text-white font-mono text-sm">Available</h4>
-                    <p className="text-cyan-400 font-mono text-xs">24/7 Online</p>
+                    <h4 className="font-semibold text-card-foreground font-mono text-sm">Available</h4>
+                    <p className="text-cyan-500 font-mono text-xs">24/7 Online</p>
                   </CardContent>
                 </Card>
               </div>
             </div>
 
             {/* Right Side - Contact Form */}
-            <Card className="bg-gray-900/90 backdrop-blur-sm border border-gray-700">
+            <Card className="bg-card/80 backdrop-blur-sm border border-border">
               <CardContent className="p-0">
                 {/* Terminal Header */}
-                <div className="bg-gray-800/80 p-4 border-b border-gray-700">
+                <div className="bg-card/80 p-4 border-b border-border">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-400 text-sm ml-4 font-mono">message-form.jsx</span>
+                    <span className="text-muted-foreground text-sm ml-4 font-mono">message-form.jsx</span>
                   </div>
                 </div>
 
                 <div className="p-8">
                   <div className="flex items-center mb-6">
                     <Code className="w-6 h-6 text-cyan-400 mr-3" />
-                    <h3 className="text-2xl font-bold text-white font-mono">Send Message</h3>
+                    <h3 className="text-2xl font-bold text-card-foreground font-mono">Send Message</h3>
                   </div>
 
                   {isSubmitted && (
@@ -267,7 +267,7 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2 font-mono">
+                        <label className="block text-sm font-medium text-card-foreground mb-2 font-mono">
                           name
                         </label>
                         <Input
@@ -276,12 +276,12 @@ const Contact = () => {
                           required
                           value={formData.name}
                           onChange={handleInputChange}
-                          className="bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-cyan-400 font-mono"
+                          className="bg-background border-border text-card-foreground placeholder:text-muted-foreground focus:border-cyan-400 font-mono"
                           placeholder="Enter your name"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2 font-mono">
+                        <label className="block text-sm font-medium text-card-foreground mb-2 font-mono">
                           email
                         </label>
                         <Input
@@ -290,14 +290,14 @@ const Contact = () => {
                           required
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-cyan-400 font-mono"
+                          className="bg-background border-border text-card-foreground placeholder:text-muted-foreground focus:border-cyan-400 font-mono"
                           placeholder="your@email.com"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2 font-mono">
+                      <label className="block text-sm font-medium text-card-foreground mb-2 font-mono">
                         subject
                       </label>
                       <Input
@@ -306,13 +306,13 @@ const Contact = () => {
                         required
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-cyan-400 font-mono"
+                        className="bg-background border-border text-card-foreground placeholder:text-muted-foreground focus:border-cyan-400 font-mono"
                         placeholder="Project inquiry"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2 font-mono">
+                      <label className="block text-sm font-medium text-card-foreground mb-2 font-mono">
                         message
                       </label>
                       <Textarea
@@ -321,7 +321,7 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         rows={5}
-                        className="bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-cyan-400 resize-none font-mono"
+                        className="bg-background border-border text-card-foreground placeholder:text-muted-foreground focus:border-cyan-400 resize-none font-mono"
                         placeholder="Tell me about your project..."
                       />
                     </div>

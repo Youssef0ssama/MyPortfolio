@@ -14,7 +14,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black border-t border-gray-800 relative overflow-hidden">
+    <footer className="bg-background border-t border-border relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -38,8 +38,8 @@ const Footer = () => {
                   {personalInfo.name}
                 </h3>
               </div>
-              <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
-                <p className="text-gray-300 leading-relaxed font-mono text-sm">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-4 border border-border">
+                <p className="text-muted-foreground leading-relaxed font-mono text-sm">
                   <span className="text-green-400">// </span>
                   Frontend Developer passionate about creating beautiful, 
                   functional web experiences that make a difference in the digital world.
@@ -54,9 +54,9 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-lg bg-gray-900/50 border border-gray-800 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 group"
+                      className="p-3 rounded-lg bg-card/80 border border-border hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 group"
                     >
-                      <Icon className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-cyan-400 transition-colors" />
                     </a>
                   );
                 })}
@@ -65,17 +65,17 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-white font-mono flex items-center">
+              <h4 className="text-lg font-semibold text-foreground font-mono flex items-center">
                 <Code className="w-5 h-5 mr-2 text-cyan-400" />
                 Navigation
               </h4>
-              <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-4 border border-border">
                 <ul className="space-y-2">
                   {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
                     <li key={item}>
                       <a
                         href={`#${item.toLowerCase()}`}
-                        className="text-gray-400 hover:text-cyan-400 transition-colors font-mono text-sm"
+                        className="text-muted-foreground hover:text-cyan-500 transition-colors font-mono text-sm"
                       >
                         {item.toLowerCase()}()
                       </a>
@@ -87,11 +87,11 @@ const Footer = () => {
 
             {/* Status & Info */}
             <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-white font-mono flex items-center">
+              <h4 className="text-lg font-semibold text-foreground font-mono flex items-center">
                 <Terminal className="w-5 h-5 mr-2 text-green-400" />
                 Status
               </h4>
-              <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-4 border border-border">
                 <div className="space-y-3">
                   <Badge className="bg-green-500/20 border-green-500/40 text-green-400 font-mono">
                     <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
@@ -101,7 +101,7 @@ const Footer = () => {
                     <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
                     Open Source
                   </Badge>
-                  <div className="text-sm text-gray-400 font-mono space-y-1">
+                  <div className="text-sm text-muted-foreground font-mono space-y-1">
                     <p>Location: {personalInfo.location}</p>
                     <p>Graduating: June 2025</p>
                     <p>Focus: Frontend Development</p>
@@ -112,25 +112,25 @@ const Footer = () => {
           </div>
 
           {/* Terminal Section */}
-          <div className="mt-12 pt-8 border-t border-gray-800">
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-gray-800 p-6">
+          <div className="mt-12 pt-8 border-t border-border">
+            <div className="bg-card/80 backdrop-blur-sm rounded-lg border border-border p-6">
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-gray-400 text-sm ml-4 font-mono">footer.terminal</span>
+                <span className="text-muted-foreground text-sm ml-4 font-mono">footer.terminal</span>
               </div>
               <div className="space-y-2 font-mono text-sm">
                 <div className="flex items-center space-x-2">
                   <span className="text-cyan-400">$</span>
-                  <span className="text-gray-300">echo "© {currentYear} {personalInfo.name}"</span>
+                  <span className="text-muted-foreground">echo "© {currentYear} {personalInfo.name}"</span>
                 </div>
-                <div className="text-gray-400">© {currentYear} {personalInfo.name}. All rights reserved.</div>
+                <div className="text-muted-foreground">© {currentYear} {personalInfo.name}. All rights reserved.</div>
                 <div className="flex items-center space-x-2">
                   <span className="text-cyan-400">$</span>
-                  <span className="text-gray-300">cat tech_stack.txt</span>
+                  <span className="text-muted-foreground">cat tech_stack.txt</span>
                 </div>
-                <div className="flex items-center text-gray-400">
+                <div className="flex items-center text-muted-foreground">
                   <span>Built with</span>
                   <Heart className="w-4 h-4 text-red-500 mx-2 animate-pulse" />
                   <span>using React & Tailwind CSS</span>
@@ -141,7 +141,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
       <style >{`
         @keyframes float {
           0%, 100% {
