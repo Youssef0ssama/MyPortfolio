@@ -108,9 +108,10 @@ const Navigation = () => {
               <Download className="w-4 h-4 mr-2" />
               download_cv()
             </Button>
+            {/* Desktop Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="ml-4 p-2 rounded-lg border border-border bg-background/70 hover:bg-background transition-colors flex items-center justify-center"
+              className="ml-4 p-2 rounded-lg border border-border bg-background/70 hover:bg-background transition-colors flex items-center justify-center hidden md:flex"
               aria-label="Toggle theme"
               type="button"
             >
@@ -118,13 +119,25 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg transition-all duration-200 text-foreground hover:text-cyan-500 bg-background/70`}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Controls: Burger + Theme Toggle (side by side, only on mobile) */}
+          <div className="flex items-center md:hidden">
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`p-2 rounded-lg transition-all duration-200 text-foreground hover:text-cyan-500 bg-background/70`}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+            {/* Mobile Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="ml-2 p-2 rounded-lg border border-border bg-background/70 hover:bg-background transition-colors flex items-center justify-center"
+              aria-label="Toggle theme"
+              type="button"
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-gray-700" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -151,14 +164,7 @@ const Navigation = () => {
                 <Download className="w-4 h-4 mr-2" />
                 download_cv()
               </Button>
-              <button
-                onClick={toggleTheme}
-                className="mt-4 w-full p-2 rounded-lg border border-border bg-background/70 hover:bg-background transition-colors flex items-center justify-center"
-                aria-label="Toggle theme"
-                type="button"
-              >
-                {theme === 'dark' ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-gray-700" />}
-              </button>
+              {/* Removed mobile theme toggle from inside the menu */}
             </div>
           </div>
         )}

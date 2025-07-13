@@ -4,6 +4,7 @@ import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { ExternalLink, Github, Figma, Code, Eye, Star, Terminal, Zap, Play } from 'lucide-react';
 import { projects } from '../../data/mock';
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from '../ui/select';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -109,12 +110,38 @@ const Projects = () => {
                   <Code className="w-5 h-5 mr-2 text-cyan-400" />
                   Filter Projects
                 </h3>
-                <div className="flex flex-row gap-3 flex-wrap justify-center">
+                {/* Responsive Filter: Dropdown on small screens, buttons on md+ */}
+                {/* Dropdown for small screens */}
+                <div className="flex justify-center md:hidden">
+                  <Select value={filter} onValueChange={setFilter}>
+                    <SelectTrigger
+                      className={`w-56 font-mono border border-border transition-all duration-300
+                        ${filter !== 'all'
+                          ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25'
+                          : 'bg-card/80 text-card-foreground hover:text-cyan-500 hover:bg-card/90'}
+                      `}
+                    >
+                      <SelectValue placeholder="Select filter..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">show_all()</SelectItem>
+                      <SelectItem value="featured">filter_featured()</SelectItem>
+                      <SelectItem value="react">filter_react()</SelectItem>
+                      <SelectItem value="javascript">filter_javascript()</SelectItem>
+                      <SelectItem value="figma">filter_figma()</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                {/* Button group for md+ screens */}
+                <div
+                  className="hidden md:flex flex-row gap-3 flex-wrap justify-center px-1 w-full max-w-full"
+                  style={{ WebkitOverflowScrolling: 'touch' }}
+                >
                   {['all', 'featured', 'react', 'javascript', 'figma'].map((filterType) => (
                     <Button
                       key={filterType}
                       onClick={() => setFilter(filterType)}
-                      className={`px-4 py-2 rounded-md font-mono text-sm transition-all duration-300 border border-border
+                      className={`min-w-[120px] px-4 py-2 rounded-md font-mono text-sm transition-all duration-300 border border-border
                         ${filter === filterType
                           ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25"
                           : "bg-card/80 text-card-foreground hover:text-cyan-500 hover:bg-card/90"}
