@@ -146,70 +146,89 @@ const youssef = new Developer();`;
               </Card>
             </div>
 
-            {/* Right Side - Skills/Features Grid */}
-            <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Card 1 */}
-                <Card className="bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-300 shadow-lg">
-                  <CardContent className="p-5 flex flex-col items-start">
-                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
-                      <Code2 className="w-7 h-7 text-cyan-400" />
+            {/* Right Side - Education & Certificates */}
+            <div className="space-y-6">
+              {/* Education Card */}
+              <Card className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-300 dark:border-gray-700 hover:border-blue-400/50 dark:hover:border-blue-500/50 transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-gradient-to-r from-blue-400 to-indigo-500 dark:from-blue-500 dark:to-indigo-600 rounded-lg mr-4">
+                      <GraduationCap className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1">Frontend Development</h3>
-                    <p className="text-muted-foreground text-sm">Building responsive websites with HTML, CSS, and JavaScript</p>
-                  </CardContent>
-                </Card>
-                {/* Card 2 */}
-                <Card className="bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-300 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-start">
-                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
-                      <Terminal className="w-7 h-7 text-cyan-400" />
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white font-mono">Education</h3>
+                      <p className="text-gray-600 dark:text-gray-400 font-mono text-sm">Academic Background</p>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1">React Applications</h3>
-                    <p className="text-muted-foreground text-sm">Developing interactive UIs using React framework</p>
-                  </CardContent>
-                </Card>
-                {/* Card 3 */}
-                <Card className="bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-300 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-start">
-                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
-                      <Book className="w-7 h-7 text-cyan-400" />
+                  </div>
+
+                  <div className="bg-gray-100/70 dark:bg-black/30 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 font-mono">
+                      {education.degree}
+                    </h4>
+                    <p className="text-cyan-600 dark:text-cyan-400 font-mono mb-1">{education.institution}</p>
+                    <div className="flex items-center text-gray-600 dark:text-gray-400 mb-2 font-mono">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span>{education.duration}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1">Mobile-First Design</h3>
-                    <p className="text-muted-foreground text-sm">Creating responsive interfaces for all devices</p>
-                  </CardContent>
-                </Card>
-                {/* Card 4 */}
-                <Card className="bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-300 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-start">
-                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
-                      <Database className="w-7 h-7 text-cyan-400" />
+                    <div className="flex items-center">
+                      <Database className="w-4 h-4 mr-2 text-yellow-500 dark:text-yellow-300" />
+                      <span className="font-mono text-sm font-semibold text-yellow-800 dark:text-yellow-300 bg-yellow-100 dark:bg-yellow-900/30 px-2 py-1 rounded">
+                        CGPA : {education.CGPA}
+                      </span>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1">Database Integration</h3>
-                    <p className="text-muted-foreground text-sm">Working with MySQL for data management</p>
-                  </CardContent>
-                </Card>
-                {/* Card 5 */}
-                <Card className="bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-300 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-start">
-                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
-                      <Zap className="w-7 h-7 text-cyan-400" />
+                  </div>
+
+                  {/* Removed Key Courses section */}
+                </CardContent>
+              </Card>
+
+              {/* Certificates Card */}
+              <Card className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-300 dark:border-gray-700 hover:border-green-400/50 dark:hover:border-green-500/50 transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-gradient-to-r from-green-400 to-emerald-500 dark:from-green-500 dark:to-emerald-600 rounded-lg mr-4">
+                      <Award className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1">Version Control</h3>
-                    <p className="text-muted-foreground text-sm">Utilizing Git for collaborative development</p>
-                  </CardContent>
-                </Card>
-                {/* Card 6 */}
-                <Card className="bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-300 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-start">
-                    <div className="p-3 bg-cyan-500/20 rounded-lg mb-4">
-                      <Award className="w-7 h-7 text-cyan-400" />
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white font-mono">Certificates</h3>
+                      <p className="text-gray-600 dark:text-gray-400 font-mono text-sm">Professional Development</p>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1">UI/UX Design</h3>
-                    <p className="text-muted-foreground text-sm">Designing interfaces with Figma and Illustrator</p>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    {certificates.map((cert, index) => (
+                      <div
+                        key={index}
+                        className={`p-4 rounded-lg border transition-all duration-300 ${index === currentCert
+                          ? 'bg-green-100/60 dark:bg-green-500/10 border-green-400/40 dark:border-green-500/40'
+                          : 'bg-gray-50/60 dark:bg-gray-800/30 border-gray-200 dark:border-gray-700'
+                          }`}
+                      >
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h4 className="font-semibold text-gray-900 dark:text-white font-mono text-sm md:text-base">
+                                {cert.title}
+                              </h4>
+                              <span className="text-gray-600 dark:text-gray-400 text-xs md:text-sm font-mono">({cert.issuer})</span>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <Badge
+                              className={`font-mono ${cert.current
+                                ? 'bg-green-200/60 dark:bg-green-500/20 text-green-700 dark:text-green-400 border-green-400/40 dark:border-green-500/40 animate-pulse'
+                                : 'bg-gray-200/60 dark:bg-gray-600/20 text-gray-700 dark:text-gray-400 border-gray-200 dark:border-gray-600/40'
+                                }`}
+                            >
+                              {cert.year}
+                            </Badge>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

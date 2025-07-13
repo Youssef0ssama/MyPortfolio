@@ -36,6 +36,7 @@ export const education = {
   degree: "Bachelor of Sciences in Computer Science",
   institution: "Alexandria University",
   duration: "Sep 2021 - Jun 2025",
+  CGPA: 3.5984 ,
   courses: [
     "Object-oriented Programming",
     "Algorithm Analysis and Design",
@@ -149,7 +150,7 @@ export const certificates = [
     current: false
   },
   {
-    title: "Advanced Frontend Web Development using Reactjs",
+    title: "Frontend Reactjs Training",
     issuer: "ITI",
     year: "2024",
     current: false
