@@ -66,7 +66,7 @@ const youssef = new Developer();`;
       <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-10 md:mb-16">
+          <div className="text-center mb-6 md:mb-8">
             <div className="inline-block bg-card/80 backdrop-blur-sm rounded-lg border border-border p-4 md:p-6 mb-4 md:mb-6">
               <Code2 className="w-7 h-7 md:w-8 md:h-8 text-cyan-400 mx-auto mb-3 md:mb-4" />
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-foreground mb-2 md:mb-4 font-mono">
@@ -76,10 +76,6 @@ const youssef = new Developer();`;
               </h2>
               <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
             </div>
-            <p className="text-base md:text-lg text-muted-foreground max-w-xl md:max-w-2xl mx-auto font-mono">
-              <span className="text-green-400">// </span>
-              Get to know the person behind the code
-            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">

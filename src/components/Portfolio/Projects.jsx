@@ -89,7 +89,7 @@ const Projects = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <div className="inline-block bg-card/80 backdrop-blur-sm rounded-lg border border-border p-6 mb-6">
               <Terminal className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-card-foreground mb-4 font-mono">
@@ -99,10 +99,6 @@ const Projects = () => {
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
             </div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-mono">
-              <span className="text-green-400">// </span>
-              Projects that showcase my coding journey and technical skills
-            </p>
           </div>
 
           {/* Code Preview Section */}
