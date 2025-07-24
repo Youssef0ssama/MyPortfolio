@@ -1,4 +1,10 @@
 // Mock data for Youssef Kandil's Portfolio
+import islamicImg from '../assets/images/islamic.png';
+import hotelImg from '../assets/images/Hotel.png';
+import schedsmartDarkImg from '../assets/images/schedsmart-dark.png';
+import schedsmartLightImg from '../assets/images/schedsmart-light.png';
+import airbnbImg from '../assets/images/airbnb.png';
+
 export const personalInfo = {
   name: "Youssef Kandil",
   title: "Frontend Developer",
@@ -53,7 +59,7 @@ export const projects = [
     id: 1,
     title: "American Islamic Diversity",
     description: "Transformed a static, hard-coded nonprofit website into a dynamic platform by designing and implementing a full backend (Node.js, Express, SQLite) and admin UI for content management.",
-    image: "https://images.unsplash.com/photo-1457305237443-44c3d5a30b89?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NTIyNTM2OTl8MA&ixlib=rb-4.1.0&q=85",
+    image: islamicImg,
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "Node.js", "Express", "SQLite"],
     liveUrl: "https://americanislamicdiversity.org/",
     githubUrl: null,
@@ -63,7 +69,7 @@ export const projects = [
     id: 2,
     title: "Hotel and Tour Booking Platform",
     description: "Web project serves as a modern and user-friendly hotel and tour booking platform, offering an immersive experience inspired by leading travel websites. (Career 180/Learn it Final Project)",
-    image: "https://images.pexels.com/photos/7129654/pexels-photo-7129654.jpeg",
+    image: hotelImg,
     technologies: ["React.js", "Redux", "CSS Modules", "JavaScript"],
     liveUrl: "https://hotels-one-jet.vercel.app/",
     githubUrl: "https://github.com/emy185/hotels.git",
@@ -73,7 +79,6 @@ export const projects = [
     id: 3,
     title: "SCHEDSMART",
     description: "Developed a university scheduling web application for Alexandria University, enabling efficient timetable generation and management for students and staff. (Graduation Final Project)",
-    image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg",
     technologies: ["React.js", "Tailwind CSS", "Vite", "NestJS", "TypeScript", "Flask", "OR-Tools", "Docker", "PostgreSQL"],
     liveUrl: null,
     githubUrl: null,
@@ -83,7 +88,7 @@ export const projects = [
     id: 4,
     title: "Airbnb Mobile App Design",
     description: "Designed and developed a responsive Airbnb UI project on Figma, showcasing meticulous attention to detail and a user-centric approach, ensuring seamless accessibility across various devices.",
-    image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg",
+    image: airbnbImg,
     technologies: ["Figma"],
     liveUrl: null,
     githubUrl: null,
@@ -156,3 +161,6 @@ export const certificates = [
     current: false
   }
 ];
+
+// Export the SCHEDSMART images for use in the component
+export { schedsmartDarkImg, schedsmartLightImg };

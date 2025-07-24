@@ -3,13 +3,33 @@ import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { ExternalLink, Github, Figma, Code, Eye, Star, Terminal, Zap, Play } from 'lucide-react';
-import { projects } from '../../data/mock';
+import { projects, schedsmartDarkImg, schedsmartLightImg } from '../../data/mock';
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from '../ui/select';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [hoveredProject, setHoveredProject] = useState(null);
   const [codeLines, setCodeLines] = useState([]);
+
+  // Theme detection for SCHEDSMART image
+  const [isDark, setIsDark] = useState(() =>
+    typeof window !== 'undefined'
+      ? document.documentElement.classList.contains('dark') || window.matchMedia('(prefers-color-scheme: dark)').matches
+      : false
+  );
+
+  useEffect(() => {
+    const updateTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    window.addEventListener('storage', updateTheme);
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => {
+      window.removeEventListener('storage', updateTheme);
+      observer.disconnect();
+    };
+  }, []);
 
   const filteredProjects = filter === 'all' 
     ? projects 
@@ -160,7 +180,7 @@ const Projects = () => {
             {filteredProjects.map((project, index) => (
               <Card 
                 key={project.id}
-                className="group relative bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
+                className="group relative bg-card/90 backdrop-blur-sm border border-border hover:border-cyan-400 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden cursor-pointer w-full max-w-md"
                 onClick={() => handleProjectClick(project)}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
@@ -189,11 +209,15 @@ const Projects = () => {
                 </div>
 
                 {/* Project Image */}
-                <div className="relative overflow-hidden h-48">
-                  <img 
-                    src={project.image} 
+                <div className="relative overflow-hidden aspect-[4/3] w-full">
+                  <img
+                    src={
+                      project.title === 'SCHEDSMART'
+                        ? (isDark ? schedsmartLightImg : schedsmartDarkImg)
+                        : project.image
+                    }
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
@@ -251,7 +275,7 @@ const Projects = () => {
                     {project.githubUrl && (
                       <Button 
                         size="sm" 
-                        className="bg-card/80 text-card-foreground hover:bg-cyan-100 hover:text-cyan-700 border border-border font-mono"
+                        className="bg-gradient-to-r from-blue-500 to-cyan-600 text-white border-0 font-mono"
                         onClick={(e) => {
                           e.stopPropagation();
                           window.open(project.githubUrl, '_blank');
@@ -264,7 +288,7 @@ const Projects = () => {
                     {project.figmaUrl && (
                       <Button 
                         size="sm" 
-                        className="bg-card/80 text-card-foreground hover:bg-purple-100 hover:text-purple-700 border border-border font-mono"
+                        className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 font-mono"
                         onClick={(e) => {
                           e.stopPropagation();
                           window.open(project.figmaUrl, '_blank');
